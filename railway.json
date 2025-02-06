@@ -1,0 +1,21 @@
+{
+    "services": [
+      {
+        "name": "backend",
+        "type": "docker",
+        "path": "backend",
+        "env": {
+          "PORT": "8080"
+        }
+      },
+      {
+        "name": "frontend",
+        "type": "docker",
+        "path": "frontend",
+        "env": {
+          "PORT": "3000"
+        }
+      }
+    ]
+  }
+  
