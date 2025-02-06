@@ -1,0 +1,7 @@
+[services.backend]
+path = "backend"
+type = "docker"
+
+[services.frontend]
+path = "frontend"
+type = "docker"
