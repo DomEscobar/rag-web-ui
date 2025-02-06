@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-WORKDIR /app
+WORKDIR /backend  # Adjusted to reflect the new structure
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -11,26 +11,22 @@ RUN apt-get update && apt-get install -y \
   && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements file
-COPY requirements.txt .
+COPY backend/requirements.txt .
 
 # Install Python packages
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy entrypoint script first
-COPY entrypoint.sh .
+COPY backend/entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
 # Copy the rest of the application
-COPY . .
-
+COPY backend .
 # Create uploads directory
 RUN mkdir -p uploads
 
 # Set Python path
-ENV PYTHONPATH=/app
-
-# Expose the expected port (Change if needed)
-EXPOSE 8000
+ENV PYTHONPATH=/backend
 
 # Run the application
 ENTRYPOINT ["./entrypoint.sh"]
