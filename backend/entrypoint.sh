@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Use environment variables provided by Railway for MySQL
-echo "Waiting for MySQL at ${MYSQL_HOST}:${MYSQL_PORT}..."
-while ! nc -z ${MYSQL_HOST} ${MYSQL_PORT}; do
+echo "Waiting for MySQL at ${MYSQL_SERVER}.."
+while ! nc -z db.railway.internal; do
   sleep 1
 done
 echo "MySQL started"
