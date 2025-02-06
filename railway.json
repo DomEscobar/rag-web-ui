@@ -1,21 +1,19 @@
 {
-    "services": [
-      {
-        "name": "backend",
-        "type": "docker",
-        "path": "backend",
-        "env": {
-          "PORT": "8080"
+    "services": {
+        "backend": {
+            "buildCommand": "docker build -t backend -f backend/Dockerfile backend",
+            "startCommand": "docker run -p 8000:8000 backend",
+            "envVars": {
+                "PORT": "8000",
+                "WAIT_FOR_DB": "true"
+            }
+        },
+        "frontend": {
+            "buildCommand": "docker build -t frontend -f frontend/Dockerfile frontend",
+            "startCommand": "docker run -p 3000:3000 frontend",
+            "envVars": {
+                "PORT": "3000"
+            }
         }
-      },
-      {
-        "name": "frontend",
-        "type": "docker",
-        "path": "frontend",
-        "env": {
-          "PORT": "3000"
-        }
-      }
-    ]
-  }
-  
+    }
+}
