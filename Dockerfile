@@ -30,7 +30,7 @@ RUN mkdir -p uploads
 ENV PYTHONPATH=/backend
 
 # Define environment variables
-ENV MYSQL_SERVER=db \
+ENV MYSQL_SERVER=db.railway.internal \
   MYSQL_USER=ragwebui \
   MYSQL_PASSWORD=ragwebui \
   MYSQL_DATABASE=ragwebui \
@@ -43,7 +43,7 @@ ENV MYSQL_SERVER=db \
   CHROMA_DB_HOST=chromadb.railway.internal \
   CHROMA_DB_PORT= \
   VECTOR_STORE_TYPE=chroma \
-  MINIO_ENDPOINT=minio:9000 \
+  MINIO_ENDPOINT=minio.railway.internal:9000 \
   MINIO_ACCESS_KEY=minioadmin \
   MINIO_SECRET_KEY=minioadmin \
   MINIO_BUCKET_NAME=documents \
